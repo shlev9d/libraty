@@ -39,7 +39,7 @@ class Posts {
 				<span class='posts-element__name'>${name}</span>
 				<img class='posts-element__img' src='${img}' />
 				<span class='posts-element__price' >${price}</span>
-				<button class='posts-element__btn${activeClass}' onclick='postsPage.handleSetLocationStorage(this, "${id}")'
+				<button class="posts-element__btn ${activeClass}" onclick="postsPage.handleSetLocationStorage(this, '${id}')"
 			>
 			${activeText}
 			</button>

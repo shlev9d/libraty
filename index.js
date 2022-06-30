@@ -13,8 +13,11 @@ fetch('./catalog.json')
 	.then(res => res.json())
 	.then(body => {
 		CATALOG = body
-		spinnerPage.handlerClear()
+      setTimeout(() => {
+				spinnerPage.handlerClear()
 		render()
+			}, 1000)
+	
 	})
 	.catch(error => {
     spinnerPage.handlerClear()

@@ -25,10 +25,7 @@ class LocalStorageUtil {
 
 		localStorage.setItem(this.keyName, JSON.stringify(posts))
 
-		return {
-			pushPosts,
-			posts,
-		}
+		return {pushPosts,posts}
 	}
 }
 
