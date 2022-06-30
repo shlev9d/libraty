@@ -1,0 +1,26 @@
+.archive-container{
+  width: 95%;
+  height: 95vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) ;
+  margin: auto;
+  padding: var(--space-large);
+  background: var(--color-bg-post);
+  box-shadow: var(--box-shadow);
+}
+
+.archive-element__name{
+padding: var(--space-medium);
+font-weight: bold;
+}
+
+.archive__close{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  top:20px;
+  cursor: pointer;
+}
