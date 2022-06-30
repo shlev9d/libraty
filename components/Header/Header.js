@@ -8,6 +8,7 @@ class Header {
     
     let html = `
     <div class='header-container'>
+    <div></div>
       <div class='header-counter' onclick='headerPage.hendlerOpenArchive()'>
         <img class='header-icon' src='../../image/icon-archive.png'/> ${count}
       </div>

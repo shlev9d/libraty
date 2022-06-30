@@ -21,28 +21,37 @@ class Posts {
 
 	render() {
 		const postsStore = localStorageUtil.getPosts()
+		console.log(postsStore);
 		let htmlArticles = ''
+	
 
-		CATALOG.forEach(({ id, newsSite, imageUrl,title,url }) => {
-				let activeClass = ''
-				let activeText = ''
+		CATALOG.forEach(({ id, newsSite, imageUrl, title, url, publishedAt }) => {
+			let activeClass = ''
+			let activeText = ''
+			const date = publishedAt.slice(0,-5).replace('T', ' ')
 
-				if (postsStore.indexOf(id) === -1) {
-					activeText = this.labelAdd
-				} else {
-					activeClass = ' ' + this.classNameActive
-					activeText = this.labelDelete
-				}
+
+			if (postsStore.indexOf(id) === -1) {
+				activeText = this.labelAdd
+			} else {
+				activeClass = ' ' + this.classNameActive
+				activeText = this.labelDelete
+			}
 
 			htmlArticles += `
-				<li class='posts-element'>
-					<span class='posts-element__name'>${newsSite}</span>
-					<img class='posts-element__img' src='${imageUrl}' />
-						<span class='posts-element__price' >${title}</span>
-						<a href="${url}">перейти</a>
-						<button class='posts-element__btn${activeClass}' onclick='postsPage.handleSetLocationStorage(this, "${id}")'>
+				<li class="posts-element">
+				<div class="posts-element__header">
+					<span class="posts-element__name">${newsSite}</span>
+					<span class="posts-element__data">${date}</span>
+				</div>
+					<img class="posts-element__img" src="${imageUrl}" />
+						<span class="posts-element__title" >${title}</span>
+						<div class="posts-element__buttons">
+						<a class="posts-element__btn posts-element__a" href="${url}" target="_blank">перейти</a>
+						<button class="posts-element__btn${activeClass}" onclick="postsPage.handleSetLocationStorage(this, ${id})">
 						${activeText}
 						</button>
+						</div>
 				</li>
 			`
 		})

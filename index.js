@@ -8,7 +8,7 @@ function render() {
 spinnerPage.render()
 let CATALOG = []
 
-fetch('https://api.spaceflightnewsapi.net/v3/articles/')
+fetch(`${BASE_API}/articles/`)
 .then(res => res.json())
 .then(data => {
 	CATALOG = data
@@ -16,16 +16,3 @@ fetch('https://api.spaceflightnewsapi.net/v3/articles/')
 	spinnerPage.handlerClear()
 	render()
 })
-
-// fetch('https://api.spaceflightnewsapi.net/v3/articles')
-// 	.then(res => res.json())
-// 	.then(body => {
-// 		CATALOG = body
-//     console.log(CATALOG);
-// 		spinnerPage.handlerClear()
-// 		render()
-// 	})
-// 	.catch(error => {
-// 		spinnerPage.handlerClear()
-// 		errorPage.render()
-// 	})

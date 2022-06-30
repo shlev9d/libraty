@@ -30,6 +30,7 @@ class LocalStorageUtil {
 			posts
 		}
 	}
+
 }
 
 const localStorageUtil = new LocalStorageUtil()

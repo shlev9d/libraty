@@ -24,3 +24,7 @@ font-weight: bold;
   top:20px;
   cursor: pointer;
 }
+
+.archive-empty{
+  text-align: center;
+}
