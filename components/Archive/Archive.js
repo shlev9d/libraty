@@ -1,20 +1,32 @@
 class Archive {
-
-    handlerClear(){
-      ROOT_ARCHIVE.innerHTML = ''
-    }
+	handlerClear() {
+		ROOT_ARCHIVE.innerHTML = ''
+	}
 
 	render() {
 		const postsStore = localStorageUtil.getPosts()
-    let htmlCatalog = ``
+		let htmlArchive = ``
+		console.log(postsStore)
 
-		CATALOG.forEach(({ id, name }) => {
-			if (postsStore.indexOf(id) !== -1) {
-				htmlCatalog += `
-        <tr>
-          <td class='archive-element__name'>${name}</td>
-        </tr>
-        `
+		// CATALOG.forEach(({ id, name }) => {
+		// 	if (postsStore.indexOf(id) !== -1) {
+		// 		htmlCatalog += `
+		//     <tr>
+		//       <td class='archive-element__name'>${name}</td>
+		//     </tr>
+		//     `
+		// 	}
+		// })
+
+		CATALOG.forEach(({ id, title, url }) => {
+			console.log({ id })
+			if (postsStore.indexOf(String(id)) !== -1) {
+				htmlArchive += `
+					<tr>
+						<td class='archive-element__name'><a href='${url}'>read</a></td>
+						<td>${title}</td>
+					</tr>
+				`
 			}
 		})
 
@@ -22,7 +34,7 @@ class Archive {
       <div class='archive-container'>
         <img class='archive__close' src='../../image/close.png' onclick='archivePage.handlerClear()' />
         <table>
-          ${htmlCatalog}
+          ${htmlArchive}
         </table>
       </div>
 `
@@ -31,4 +43,3 @@ class Archive {
 }
 
 const archivePage = new Archive()
-
