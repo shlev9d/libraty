@@ -1,10 +1,12 @@
 class Posts {
 	constructor() {
+//переменные для добавления активных классов и тырыпыры
 		this.classNameActive = 'posts-element__btn_active'
 		this.labelAdd = 'add to archive'
 		this.labelDelete = 'delete from archive'
 	}
 
+	 //функция для сохранения в локал и добавления актив класса
 	handleSetLocationStorage(element, id) {
 		const { pushPosts, posts } = localStorageUtil.putPosts(id)
 
@@ -16,16 +18,16 @@ class Posts {
 			element.innerHTML = this.labelAdd
 		}
 
-		headerPage.render(posts.length)
+		headerParams.archiveCount = posts.length; 
+		headerPage.render(headerParams)
 	}
 
 	render() {
 		const postsStore = localStorageUtil.getPosts()
-		console.log(postsStore);
 		let htmlArticles = ''
 	
 
-		CATALOG.forEach(({ id, newsSite, imageUrl, title, url, publishedAt }) => {
+		posts.forEach(({ id, newsSite, imageUrl, title, url, publishedAt }) => {
 			let activeClass = ''
 			let activeText = ''
 			const date = publishedAt.slice(0,-5).replace('T', ' ')

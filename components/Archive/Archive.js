@@ -1,13 +1,15 @@
 class Archive {
+
 	handlerClear() {
 		ROOT_ARCHIVE.innerHTML = ''
 	}
 
 	render() {
-		const postsStore = localStorageUtil.getPosts()
-
+		const postsStore = localStorageUtil.getPosts()//получаем все из локал
 		let htmlArchive = ``
 
+
+		//проверяем есть ли что в корзине
 		if (postsStore.length === 0) {
 			htmlArchive = `
 				<div class="archive-empty">
@@ -15,8 +17,8 @@ class Archive {
 				</div>
 			`
 		} else {
-			CATALOG.forEach(({ id, title, url }) => {
-				console.log({ id })
+			posts.forEach(({ id, title, url }) => {
+				// console.log({ id })
 				if (postsStore.indexOf(id) !== -1) {
 					htmlArchive += `
 					<table>

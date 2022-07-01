@@ -1,18 +1,31 @@
-function render() {
-	const postsArchive = localStorageUtil.getPosts()
 
-	headerPage.render(postsArchive.length)
+const headerParams = {
+	limit: 15,
+	count: 0,
+	archiveCount: localStorageUtil.getPosts().length,
+}
+
+let posts = []
+
+function render() {
+	headerPage.render(headerParams)
 	postsPage.render()
 }
 
 spinnerPage.render()
-let CATALOG = []
 
-fetch(`${BASE_API}/articles/`)
-.then(res => res.json())
-.then(data => {
-	CATALOG = data
-	console.log(CATALOG);
+async function getPostCountAndRender() {
+	const postCount = await Api.getPostCount()
+	headerParams.count = postCount
+	headerPage.render(headerParams)
+}
+
+async function getPostsAndRender() {
 	spinnerPage.handlerClear()
-	render()
-})
+	posts = await Api.getPosts(0, headerParams.limit)
+	postsPage.render()
+}
+
+getPostCountAndRender()
+getPostsAndRender()
+
