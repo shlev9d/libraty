@@ -14,8 +14,8 @@ class LocalStorageUtil {
 	putPosts(id) {
 		let posts = this.getPosts()
 		let pushPosts = false
+
 		const index = posts.indexOf(id)
-    
 		if (index === -1) {
 			posts.push(id)
 			pushPosts = true
@@ -25,8 +25,14 @@ class LocalStorageUtil {
 
 		localStorage.setItem(this.keyName, JSON.stringify(posts))
 
-		return {pushPosts,posts}
+
+		return {
+			pushPosts,
+			posts
+		}
+
 	}
+
 }
 
 const localStorageUtil = new LocalStorageUtil()

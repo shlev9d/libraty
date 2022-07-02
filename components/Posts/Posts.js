@@ -5,6 +5,7 @@ class Posts {
 		this.labelDelete = 'delete from archive'
 	}
 
+
 	handleSetLocationStorage(element, id) {
 		const { pushPosts, posts } = localStorageUtil.putPosts(id)
 
@@ -16,16 +17,20 @@ class Posts {
 			element.innerHTML = this.labelAdd
 		}
 
-		headerPage.render(posts.length)
+		Params.archiveCount = posts.length; 
+		headerPage.render(Params)
 	}
 
 	render() {
 		const postsStore = localStorageUtil.getPosts()
 		let htmlArticles = ''
+	
 
-		CATALOG.forEach(({ id, name, price, img }) => {
+		allPosts.forEach(({ id, newsSite, imageUrl, title, url, publishedAt }) => {
 			let activeClass = ''
 			let activeText = ''
+			const date = publishedAt.slice(0,-5).replace('T', ' ')
+
 
 			if (postsStore.indexOf(id) === -1) {
 				activeText = this.labelAdd
@@ -35,15 +40,20 @@ class Posts {
 			}
 
 			htmlArticles += `
-			<li class='posts-element'>
-				<span class='posts-element__name'>${name}</span>
-				<img class='posts-element__img' src='${img}' />
-				<span class='posts-element__price' >${price}</span>
-				<button class="posts-element__btn ${activeClass}" onclick="postsPage.handleSetLocationStorage(this, '${id}')"
-			>
-			${activeText}
-			</button>
-			</li>
+				<li class="posts-element">
+				<div class="posts-element__header">
+					<span class="posts-element__name">${newsSite}</span>
+					<span class="posts-element__data">${date}</span>
+				</div>
+					<img class="posts-element__img" src="${imageUrl}" />
+						<span class="posts-element__title" >${title}</span>
+						<div class="posts-element__buttons">
+						<a class="posts-element__btn posts-element__a" href="${url}" target="_blank">перейти</a>
+						<button class="posts-element__btn${activeClass}" onclick="postsPage.handleSetLocationStorage(this, ${id})">
+						${activeText}
+						</button>
+						</div>
+				</li>
 			`
 		})
 
