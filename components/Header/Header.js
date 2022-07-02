@@ -5,14 +5,11 @@ class Header {
     allPosts = []
 	}
 
-	//функция чтобы закрывать корзину
 	hendlerOpenArchive() {
 		archivePage.render()
 	}
 
 	render({ archiveCount, limit, count, page}) {
-		//count передается из индекс при рендере
-		// let ccc = this.myFunction()
 
 		let html = `
     <div class='header-container'>
@@ -20,7 +17,6 @@ class Header {
     <input type="text" class="header-countInput__input" value="${limit}" onchange="headerPage.onChangeLimit(this.value)" />
     <div class="header-countInput__count" >${limit*page}/${count}</div>
     </div>
-
       <a class='header-counter' href="/library.html">
         <img class='header-icon' src='../../image/icon-archive.png'/>  
         <div>${archiveCount}</div>

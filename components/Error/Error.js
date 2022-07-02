@@ -9,8 +9,6 @@ const html = `
 </div>
 `
 
-
-
 ROOT_ERROR.innerHTML = html
   }
 }

@@ -25,14 +25,11 @@ class LocalStorageUtil {
 
 		localStorage.setItem(this.keyName, JSON.stringify(posts))
 
-
 		return {
 			pushPosts,
 			posts
 		}
-
 	}
-
 }
 
 const localStorageUtil = new LocalStorageUtil()

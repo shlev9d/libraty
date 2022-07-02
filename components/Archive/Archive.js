@@ -60,9 +60,7 @@ sort(type){
 	this.posts = this.posts.sort(sortMethod)
 	}
 	this.render()
-	
 }
-
 
 	render() {
 		const postIds = localStorageUtil.getPosts()

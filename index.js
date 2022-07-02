@@ -7,14 +7,8 @@ const Params = {
 	page: 1,
 }
 
-
-
-
 let posts = []
 let allPosts = []
-
-
-
 	
 	async function getPostCountAndRender() {
 		const postCount = await Api.getPostCount()
@@ -28,7 +22,6 @@ let allPosts = []
 		postsPage.render()
 		headerPage.render(Params)
 	}
-	
 	
 	getPostCountAndRender()
 	getPostsAndRender()

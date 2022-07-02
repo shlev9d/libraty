@@ -3,7 +3,6 @@ const makeRequest  = async (url) => {
   return await responce.json()
 }
 
-
 const getPosts = async (start, limit) => {
   return await makeRequest(`/articles?_limit=${limit}&_start=${start}`)
 }
