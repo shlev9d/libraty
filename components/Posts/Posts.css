@@ -5,6 +5,7 @@
 	width: 80%;
 	max-width: 1200px;
 	margin: var(--space-large) auto;
+	margin-top: 90px
 }
 
 .posts-element {

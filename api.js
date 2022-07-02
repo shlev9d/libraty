@@ -12,7 +12,12 @@ const getPostCount = async () => {
 	return await makeRequest(`/articles/count`)
 }
 
+const getPostsById = async (id) => {
+  return await makeRequest(`/articles/${id}`)
+}
+
 const Api = {
 	getPosts,
 	getPostCount,
+  getPostsById
 }

@@ -1,31 +1,33 @@
 
-const headerParams = {
+const Params = {
 	limit: 15,
 	count: 0,
 	archiveCount: localStorageUtil.getPosts().length,
+	start: 0,
+	page: 1,
 }
+
 
 let posts = []
+let allPosts = []
 
-function render() {
-	headerPage.render(headerParams)
-	postsPage.render()
-}
 
-spinnerPage.render()
-
-async function getPostCountAndRender() {
-	const postCount = await Api.getPostCount()
-	headerParams.count = postCount
-	headerPage.render(headerParams)
-}
-
-async function getPostsAndRender() {
-	spinnerPage.handlerClear()
-	posts = await Api.getPosts(0, headerParams.limit)
-	postsPage.render()
-}
-
-getPostCountAndRender()
-getPostsAndRender()
-
+	
+	async function getPostCountAndRender() {
+		const postCount = await Api.getPostCount()
+		Params.count = postCount
+		headerPage.render(Params)
+	}
+	
+	async function getPostsAndRender() { 
+		posts = await Api.getPosts(Params.start, Params.limit)
+		allPosts = allPosts.concat(posts)
+		postsPage.render()
+		headerPage.render(Params)
+	}
+	
+	
+	getPostCountAndRender()
+	getPostsAndRender()
+	
+	

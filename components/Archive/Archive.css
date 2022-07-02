@@ -1,30 +1,96 @@
-.archive-container{
-  width: 95%;
-  height: 95vh;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%) ;
-  margin: auto;
-  padding: var(--space-large);
-  background: var(--color-bg-post);
-  box-shadow: var(--box-shadow);
+
+.archive-container {
+	display: grid;
+	gap: 40px;
+	width: 90%;
+	max-width: 1200px;
+	margin: var(--space-large) auto;
 }
 
-.archive-element__name{
-padding: var(--space-medium);
-font-weight: bold;
+.archive-element {
+	display: grid;
+	gap: 15px;
+	grid-template-columns: 1fr 1fr 3fr;
+	padding: 20px 20px;
+	background-color: var(--color-bg-post);
+	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow);
 }
 
-.archive__close{
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  right: 20px;
-  top:20px;
-  cursor: pointer;
+.archive-element__header{
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-.archive-empty{
-  text-align: center;
+.archive-element__name {
+	font-weight: bold;
+	text-align: center;
 }
+
+.archive-element__data{
+	font-size: small;
+	text-align: center;
+}
+
+.archive-element__img {
+	width: 200px;
+	height: 130px;
+	margin-top: var(--space-medium);
+	object-fit: cover;
+}
+
+.archive-element__rigth{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.archive-element__title {
+	margin-top: var(--space-medium);
+	color: var(--color-unaccent);
+	text-align: center;
+}
+
+.archive-element__buttons{
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 5px;
+
+}
+
+.archive-element__btn{
+margin-top: var(--space-medium);
+padding: var(--space-small) var(--space-medium);
+border: 1px solid var(--color-unaccent);
+border-radius: var(--border-radius);
+cursor: pointer;
+outline: none;
+background: none;
+font-family: inherit;
+font-size: inherit ;
+text-align: center;
+}
+
+.archive-element__a{
+	text-decoration: none;
+	color: black;
+}
+.archive-element__a:hover{
+	background: var(--linear-gradient);
+}
+
+.archive-element__btn_active{
+  border: 1px solid transparent;
+  background-image: var(--linear-gradient);
+}
+
+
+.archive-header__a{
+background: var(--color-bg-post);
+width: 250px;
+}
+
+#header{display: none;}

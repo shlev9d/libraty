@@ -2,9 +2,12 @@
 	display: flex;
 	justify-content: space-between;
 	height: 50px;
+  width: 100%;
 	padding: var(--space-large);
 	background-color: var(--color-bg-post);
 	box-shadow: var(--box-shadow);
+  position: fixed;
+  top: 0;
 }
 .header-counter {
 	padding-right: var(--space-small);
@@ -13,6 +16,8 @@
 	align-items: center;
 	cursor: pointer;
 	font-weight: bold;
+	text-decoration:none;
+	color: black
 }
 
 .header-icon {
